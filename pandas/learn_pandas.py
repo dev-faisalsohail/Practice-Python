@@ -1,9 +1,14 @@
 import pandas as pd
 
 
-df_titanic = pd.read_csv(r'pandas\datasets\titanic3.csv', header=None)
-print(df_titanic.head())
+df_class = pd.read_csv("pandas\datasets\classmarks.csv")
+# print(df_class.head())
 
-df=pd.read_csv(r'pandas\datasets\people.csv', header=None)
+mask = df_class['group'] == 'group B'
 
+df_class_groupB = df_class.loc[mask] #df_class['group'] == 'group B']
+# print(df_class_groupB)
 
+df_class_groupB.to_csv('pandas\datasets\classmarksgroupB.csv', index= False)
+pd1 = pd.read_csv('pandas\datasets\classmarksgroupB.csv')
+print(pd1)
